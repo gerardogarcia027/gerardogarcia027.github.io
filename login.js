@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-    var form = document.getElementById('loginForm');
-    
+    var form = document.querySelector('form');
 
     form.addEventListener('submit', function(event) {
         var inputEmail = document.getElementById('email');
@@ -17,7 +16,5 @@ document.addEventListener("DOMContentLoaded", function(){
             alert('La contraseña debe tener al menos 8 caracteres');
             event.preventDefault(); // Evita el envío del formulario por defecto
         }
-
     });
-
 });
