@@ -1,28 +1,30 @@
-document.addEventListener("DOMContentLoaded", function(){
-    var form = document.querySelector('form');
+function validateForm() {
+            // valores
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
 
-    form.addEventListener('submit', function(event) {
-        var inputEmail = document.getElementById('email');
-        var inputPassword = document.getElementById('password');
-        var validEmail = /^\w+([.-_+]?\w+)@\w+([.-]?\w+)(\.\w{2,10})+$/;
+            // Expresión regular 
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (!validEmail.test(inputEmail.value.trim())) {
-            alert('Por favor, introduce un correo electrónico válido');
-            event.preventDefault(); // Evita el envío del formulario por defecto
-        } else if (!inputEmail.value.includes('@')) {
-            alert('El correo electrónico debe contener al menos un "@"');
-            event.preventDefault(); // Evita el envío del formulario por defecto
-        } else if (inputPassword.value.length < 8) {
-            alert('La contraseña debe tener al menos 8 caracteres');
-            event.preventDefault(); // Evita el envío del formulario por defecto
+            if (!emailRegex.test(email)) {
+                showError("Por favor, ingrese un correo electrónico válido.");
+                return false;
+            }
+
+            if (password.length < 8) {
+                showError("La contraseña debe tener al menos 8 caracteres.");
+                return false;
+            }
+
+            return true;
         }
-         function showError(message) {
+
+        function showError(message) {
             var errorDiv = document.createElement("div");
-            errorDiv.style.color = "BLACK";
+            errorDiv.style.color = "red";
             errorDiv.innerHTML = message;
 
             var form = document.querySelector("form");
             form.parentNode.insertBefore(errorDiv, form);
         }
-    });
-});
+  
