@@ -1,9 +1,9 @@
 function validateForm() {
-            // valores
+            
             var email = document.getElementById("email").value;
             var password = document.getElementById("password").value;
 
-            // Expresión regular 
+            
             var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
             if (!emailRegex.test(email)) {
@@ -21,8 +21,10 @@ function validateForm() {
 
         function showError(message) {
             var errorDiv = document.createElement("div");
-            errorDiv.style.color = "BLACK";
+            errorDiv.style.color = "green";
             errorDiv.innerHTML = message;
+
+                    
 
             var form = document.querySelector("form");
             form.parentNode.insertBefore(errorDiv, form);
