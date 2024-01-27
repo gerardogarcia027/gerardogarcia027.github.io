@@ -6,10 +6,10 @@
     <title>Login</title>
     <!-- Estilos CSS -->
     <style>
-        
+        /* Estilos generales */
         body {
             font-family: Arial, sans-serif;
-            background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F1006273110460402346%2F&psig=AOvVaw3KP1KpFY-uRxDnde7iUjMW&ust=1706407283553000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCODq5PK__IMDFQAAAAAdAAAAABAD'); /* Reemplaza 'foto.jpg' con la ruta de tu foto */
+            background-image: url('foto.jpg'); /* Reemplaza 'foto.jpg' con la ruta de tu foto */
             background-size: cover;
             display: flex;
             justify-content: center;
@@ -56,23 +56,21 @@
 </head>
 <body>
     <!-- Formulario de login -->
-
-
-
-     <h2>Iniciar sesión</h2>
-        <form onsubmit="return validateForm()">
-            <!-- Agrega etiquetas label para los campos -->
-            <label for="email">Correo electrónico:</label>
-            <input type="text" id="email" name="email" placeholder="Ingrese su correo electrónico" required autocomplete="off">
-
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required autocomplete="off">
-
-            <input type="submit" value="Iniciar sesión">
-        </form>
-    </div>
-       <script src="login.js"></script>
-   
+    <form class="login-form" action="login.php" method="post">
+        <!-- Campo de correo electrónico -->
+        <input type="text" name="email" placeholder="Correo electrónico" required>
+        <!-- Campo de contraseña -->
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <!-- Botón de inicio de sesión -->
+        <input type="submit" value="Iniciar sesión">
+        <!-- Mensaje de error -->
+        <div class="error">
+            <?php
+            if (isset($_GET['error'])) {
+                echo 'Error: ' . htmlspecialchars($_GET['error']);
+            }
+            ?>
+        </div>
+    </form>
 </body>
-
 </html>
