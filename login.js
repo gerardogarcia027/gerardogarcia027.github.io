@@ -21,7 +21,7 @@ function validateForm() {
 
         function showError(message) {
             var errorDiv = document.createElement("div");
-            errorDiv.style.color = "red";
+            errorDiv.style.color = "BLACK";
             errorDiv.innerHTML = message;
 
             var form = document.querySelector("form");
