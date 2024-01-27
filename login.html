@@ -56,7 +56,7 @@
 </head>
 <body>
     <!-- Formulario de login -->
-    <form class="login-form" action="login.php" method="post">
+    <form class="login-form">
 
         <h1>INICIAR SESION</h1>
         <!-- Campo de correo electrónico -->
@@ -66,13 +66,7 @@
         <!-- Botón de inicio de sesión -->
         <input type="submit" value="Iniciar sesión">
         <!-- Mensaje de error -->
-        <div class="error">
-            <?php
-            if (isset($_GET['error'])) {
-                echo 'Error: ' . htmlspecialchars($_GET['error']);
-            }
-            ?>
-        </div>
+        
 
                <script src="login.js"></script>
 
