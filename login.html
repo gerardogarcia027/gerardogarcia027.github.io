@@ -3,21 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesión</title>
+    <title>Login</title>
+    <!-- Estilos CSS -->
     <style>
-        /* Estilos CSS aquí */
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('foto.jpg'); /* Reemplaza 'foto.jpg' con la ruta de tu foto */
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Estilos del formulario de login */
+        .login-form {
+            background-color: rgba(255, 255, 255, 0.9); /* Transparencia del fondo */
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        /* Estilos de los campos de texto */
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        /* Estilo del botón de inicio de sesión */
+        .login-form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        /* Estilo de los mensajes de error */
+        .login-form .error {
+            color: red;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
-    <form id="loginForm" action="/login" method="post">
-        <label for="email">Usuario:</label>
-        <input type="email" id="email" name="username" required>
-
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required>
-
-        <button id="loginBtn" type="submit">Iniciar sesión</button>
+    <!-- Formulario de login -->
+    <form class="login-form" action="login.php" method="post">
+        <!-- Campo de correo electrónico -->
+        <input type="text" name="email" placeholder="Correo electrónico" required>
+        <!-- Campo de contraseña -->
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <!-- Botón de inicio de sesión -->
+        <input type="submit" value="Iniciar sesión">
+        <!-- Mensaje de error -->
+        <div class="error">
+            <?php
+            if (isset($_GET['error'])) {
+                echo 'Error: ' . htmlspecialchars($_GET['error']);
+            }
+            ?>
+        </div>
     </form>
-    <script src="login.js"></script>
 </body>
 </html>
