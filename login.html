@@ -56,20 +56,20 @@
 </head>
 <body>
     <!-- Formulario de login -->
-    <form class="login-form">
+   <div class="login-formr">
+        <h2>INICIAR SESION</h2>
+        <form onsubmit="return validateForm()">
+            <!-- Agrega etiquetas label para los campos -->
+            <label for="email">Correo electrónico:</label>
+            <input type="text" id="email" name="email" placeholder="Ingrese su correo electrónico" required autocomplete="off">
 
-        <h1>INICIAR SESION</h1>
-        <!-- Campo de correo electrónico -->
-        <input type="text" name="email" placeholder="Correo electrónico" required>
-        <!-- Campo de contraseña -->
-        <input type="password" name="password" placeholder="Contraseña" required>
-        <!-- Botón de inicio de sesión -->
-        <input type="submit" value="Iniciar sesión">
-        <!-- Mensaje de error -->
-        
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required autocomplete="off">
 
-               <script src="login.js"></script>
-
-    </form>
+            <input type="submit" value="Iniciar sesión">
+        </form>
+    </div>
+    
+       <script src="login.js"></script>
 </body>
 </html>
