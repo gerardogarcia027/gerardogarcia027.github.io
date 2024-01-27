@@ -16,5 +16,13 @@ document.addEventListener("DOMContentLoaded", function(){
             alert('La contraseña debe tener al menos 8 caracteres');
             event.preventDefault(); // Evita el envío del formulario por defecto
         }
+         function showError(message) {
+            var errorDiv = document.createElement("div");
+            errorDiv.style.color = "BLACK";
+            errorDiv.innerHTML = message;
+
+            var form = document.querySelector("form");
+            form.parentNode.insertBefore(errorDiv, form);
+        }
     });
 });
